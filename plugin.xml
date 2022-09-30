@@ -94,39 +94,39 @@
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>		
 
-		<config-file target="AndroidManifest.xml" parent="/manifest/application">
-			<service android:exported="false" android:name="com.streambow.xperience.auth.XPerienceAuthenticatorService" tools:node="merge" />
-			<receiver android:exported="false" android:name="com.streambow.xperience.receivers.UninstallBroadcastReceiver" tools:node="merge" />
-			<receiver android:exported="false" android:name="com.streambow.xperience.receivers.LauncherAndroidBroadcastReceiver" tools:node="merge" />
-			<receiver android:exported="false" android:name="com.streambow.xperience.receivers.ShutdownBroadcastReceiver" tools:node="merge" />
-			<receiver android:exported="false" android:name="com.streambow.xperience.receivers.BroadcastReceiverServiceCallsAccess" tools:node="merge" />
-			<receiver android:exported="false" android:name="com.streambow.xperience.receivers.BroadcastReceiverServiceModeAccess" tools:node="merge" />
-		</config-file>
+	<config-file target="AndroidManifest.xml" parent="/manifest/application" tools:replace="android:exported">
+		<service android:exported="false" android:name="com.streambow.xperience.auth.XPerienceAuthenticatorService" tools:node="merge" />
+		<receiver android:exported="false" android:name="com.streambow.xperience.receivers.UninstallBroadcastReceiver" tools:node="merge" />
+		<receiver android:exported="false" android:name="com.streambow.xperience.receivers.LauncherAndroidBroadcastReceiver" tools:node="merge" />
+		<receiver android:exported="false" android:name="com.streambow.xperience.receivers.ShutdownBroadcastReceiver" tools:node="merge" />
+		<receiver android:exported="false" android:name="com.streambow.xperience.receivers.BroadcastReceiverServiceCallsAccess" tools:node="merge" />
+		<receiver android:exported="false" android:name="com.streambow.xperience.receivers.BroadcastReceiverServiceModeAccess" tools:node="merge" />
+	</config-file>
 
-		<config-file parent="/*" target="res/xml/config.xml">
-			<feature name="Streambow">
-				<param name="android-package" value="com.streambow.Streambow" />
-			</feature>
-		</config-file>
+	<config-file parent="/*" target="res/xml/config.xml">
+		<feature name="Streambow">
+			<param name="android-package" value="com.streambow.Streambow" />
+		</feature>
+	</config-file>
 
-		<!-- <config-file parent="/*" target="AndroidManifest.xml"></config-file> -->
-		<source-file src="src/android/Streambow.java" target-dir="src/com/streambow" />
-		<!--<framework src="src/android/Streambow.gradle" custom="true" type="gradleReference" /> -->
-		<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
-		<source-file src="src/android/build-extras.gradle" target-dir="app" />
+	<!-- <config-file parent="/*" target="AndroidManifest.xml"></config-file> -->
+	<source-file src="src/android/Streambow.java" target-dir="src/com/streambow" />
+	<!--<framework src="src/android/Streambow.gradle" custom="true" type="gradleReference" /> -->
+	<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+	<source-file src="src/android/build-extras.gradle" target-dir="app" />
 
-		<!-- Streambow SDK -->
-		<!-- <resource-file src="src/android/lib/XperienceLib-serverNos-App-release.aar" target="libs/XperienceLib-serverNos-App-release.aar" /> -->
-		<!--<resource-file src="src/android/libs/XperienceLib.aar" target="libs/XperienceLib.aar" />-->
-		<source-file src="src/android/libs/XperienceLib.aar" target-dir="libs" /> 
+	<!-- Streambow SDK -->
+	<!-- <resource-file src="src/android/lib/XperienceLib-serverNos-App-release.aar" target="libs/XperienceLib-serverNos-App-release.aar" /> -->
+	<!--<resource-file src="src/android/libs/XperienceLib.aar" target="libs/XperienceLib.aar" />-->
+	<source-file src="src/android/libs/XperienceLib.aar" target-dir="libs" /> 
 
-		<!-- Hook for editing settings.gradle -->
-		<hook type="before_plugin_install" src="hooks/edit_settings_gradle.js"/>
-		<hook type="before_plugin_install" src="hooks/edit_gradle_properties.js"/>
-		<hook type="after_plugin_install" src="hooks/move_sdk.js"/>
-		<!--<hook type="before_plugin_install" src="hooks/copy_gradle_extras.js"/> -->
+	<!-- Hook for editing settings.gradle -->
+	<hook type="before_plugin_install" src="hooks/edit_settings_gradle.js"/>
+	<hook type="before_plugin_install" src="hooks/edit_gradle_properties.js"/>
+	<hook type="after_plugin_install" src="hooks/move_sdk.js"/>
+	<!--<hook type="before_plugin_install" src="hooks/copy_gradle_extras.js"/> -->
 
-		<dependency id="cordova-custom-config" version="^5.1.1" />
+	<dependency id="cordova-custom-config" version="^5.1.1" />
 	</platform>
 
 	
