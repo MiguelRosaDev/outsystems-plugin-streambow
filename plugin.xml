@@ -94,8 +94,8 @@
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>		
 
-	<config-file target="AndroidManifest.xml" parent="/manifest/application" tools:replace="android:exported">
-		<service android:exported="false" android:name="com.streambow.xperience.auth.XPerienceAuthenticatorService" tools:node="merge" />
+	<config-file target="AndroidManifest.xml" parent="/manifest/application">
+		<service tools:replace="android:exported" android:exported="false" android:name="com.streambow.xperience.auth.XPerienceAuthenticatorService" tools:node="merge" />
 		<receiver android:exported="false" android:name="com.streambow.xperience.receivers.UninstallBroadcastReceiver" tools:node="merge" />
 		<receiver android:exported="false" android:name="com.streambow.xperience.receivers.LauncherAndroidBroadcastReceiver" tools:node="merge" />
 		<receiver android:exported="false" android:name="com.streambow.xperience.receivers.ShutdownBroadcastReceiver" tools:node="merge" />
